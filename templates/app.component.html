@@ -1,0 +1,19 @@
+<nav class="navbar navbar-toggleable-md fixed-top navbar-inverse bg-primary">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+        <a href="/" class="navbar-brand">IOStat Viewer</a>
+        <a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a>
+        <span class="navbar-nav ml-5 text-info">{{title}}</span>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <div class="navbar-nav ml-auto">
+                <label class="btn btn-primary btn-file ml-2 mt-2">
+                    <i class="fa fa-upload"></i> Upload iostat file <input type="file" id="file" hidden (change)="fileChanged($event)">
+                </label>
+            </div>
+        </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>
