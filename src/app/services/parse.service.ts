@@ -12,7 +12,7 @@ export class ParseService {
     trigger: Subject<void> = new Subject<void>();
     loading: Subject<void> = new Subject<void>();
 
-    private colors: string[] = ['#f22', '#22f', '#2f2', '#2ff', '#ff2', '#f2f'];
+    private colors: string[] = ['#22f','#23a','#62f','#45f','#32d','#52d','#28e','#37a','#02c','#40d'];
     constructor() { }
 
     public parse(input: string): void {
@@ -79,11 +79,11 @@ export class ParseService {
             chart.height = '400px';
             chart.width = '100%';
             chart.data = new ChartData();
-            chart.data.backgroundColor = '#F0E0D0';
+            chart.data.backgroundColor = '#eee';
             chart.data.title = { text: "CPU: " + cpuplots[i] };
             chart.data.scaleX = new ChartDataScale();
             chart.data.scaleX.values = xvalues;
-            chart.data.scaleX.transform = { type: 'date', all: '%H:%m:%s' };
+            chart.data.scaleX.transform = { type: 'date', all: '%h:%i:%s:%q' };
             chart.data.scaleX.zooming = { shared: true };
             chart.data.crosshairX = { shared: true };
             chart.data.zoom = { shared: true };
@@ -99,11 +99,11 @@ export class ParseService {
             chart.height = '400px';
             chart.width = '100%';
             chart.data = new ChartData();
-            chart.data.backgroundColor = '#E0F0D0';
+            chart.data.backgroundColor = '#eee';
             chart.data.title = { text: "IO: " + ioplots[i] };
             chart.data.scaleX = new ChartDataScale();
             chart.data.scaleX.values = xvalues;
-            chart.data.scaleX.transform = { type: 'date', all: '%H:%m:%s' };
+            chart.data.scaleX.transform = { type: 'date', all: '%h:%i:%s:%q' };
             chart.data.scaleX.zooming = { shared: true };
             chart.data.crosshairX = { shared: true };
             chart.data.zoom = { shared: true };
@@ -111,7 +111,7 @@ export class ParseService {
             for (var j: number = 0; j < devices.length; j++) {
                 var s: ChartDataSeries = new ChartDataSeries();
                 s.text = devices[j];
-                s.lineColor = this.colors[Math.floor(Math.random() * this.colors.length)];
+                // s.lineColor = this.colors[Math.floor(Math.random() * this.colors.length)];
                 s.values = iovalues[i][j];
                 chart.data.series.push(s);
             }

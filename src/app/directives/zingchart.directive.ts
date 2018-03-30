@@ -20,7 +20,7 @@ export class ZingChartDirective implements AfterViewInit, OnDestroy {
 
     ngAfterViewInit() {
         this.zone.runOutsideAngular(() => {
-            zingchart.render({
+            zingchart.render({                
                 id: this.chart.id,
                 data: this.chart.data,
                 width: this.chart.width,

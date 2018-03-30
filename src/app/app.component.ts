@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
 
 
   title: string;
+  filename: string;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -31,11 +32,12 @@ export class AppComponent implements OnInit {
   fileChanged($event): void {
     this.parseService.loading.next();
     this.title = "Loading...";
+    this.filename="";
     //get file
     //need to cast html tag
     //reference： http://stackoverflow.com/questions/12989741/the-property-value-does-not-exist-on-value-of-type-htmlelement
     var file = (<HTMLInputElement>document.getElementById("file")).files[0];
-
+    this.filename=file.name;
     //new fileReader
     let fileReader = new FileReader();
     fileReader.readAsText(file);
